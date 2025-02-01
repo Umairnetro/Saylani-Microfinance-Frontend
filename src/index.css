@@ -2,13 +2,13 @@
 
 * {
   font-family: "Poppins", serif;
-  color: var(--color-dark-imperial-blue);
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
+  color: var(--color-dark-imperial-blue);
 }
 
 @theme {
@@ -22,4 +22,3 @@ body {
   /* paragraph */
   --color-paragraph: #202c45cf;
 }
-

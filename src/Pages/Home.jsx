@@ -7,17 +7,22 @@ const Home = () => {
     <div>
       <div className={`${style.landingPage}`}>
         <div className={`${style.main} container mx-auto`}>
-          <div className={`${style.content} w-1/2 flex flex-col items-start`}>
-            <h1 className="text-5xl/16 font-extrabold">
-              Welcome To Saylani Microfinance
-            </h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the loan.
-            </p>
-            <button>Take Your Loan</button>
+          <div
+            className={`${style.content} h-full w-[55%] flex flex-col items-start justify-between`}
+          >
+            <span></span>
+            <div>
+              <h1 className="text-6xl/19 font-extrabold">
+                Welcome To Saylani Microfinance
+              </h1>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the loan.
+              </p>
+              <button>Take Your Loan</button>
+            </div>
 
-            <div className="ceo mt-10 flex items-center gap-2">
+            <div className="ceo flex items-center gap-2 mb-5">
               <img
                 className="w-12 rounded-full border-2 border-dark-imperial-blue"
                 src={ceo}
@@ -29,7 +34,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="sideImage w-1/2">
+          <div className="sideImage w-[45%]">
             <img src={airplane} alt="error to load image" />
           </div>
         </div>

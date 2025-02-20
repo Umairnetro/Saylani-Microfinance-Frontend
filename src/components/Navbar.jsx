@@ -1,11 +1,14 @@
 import { Link, Outlet } from "react-router-dom";
+import Footer from "./Footer";
 
 const Navbar = () => {
   return (
     <>
       <header className="w-full border-b-dark-imperial-blue-border bg-white absolute">
-        <nav className="container flex justify-between items-center mx-auto pt-6">
-          <h3 className="logo text-xl font-bold text-dark-imperial-blue ">Saylani Welfare</h3>
+        <nav className="container flex justify-between items-center mx-auto pt-8">
+          <h3 className="logo text-2xl font-bold text-dark-imperial-blue ">
+            Saylani Welfare
+          </h3>
           <ul className="flex items-center gap-5 text-dark-imperial-blue">
             <li>
               <Link to={"/"} className="font-semibold">
@@ -35,6 +38,7 @@ const Navbar = () => {
         </nav>
       </header>
       <Outlet />
+      <Footer />
     </>
   );
 };

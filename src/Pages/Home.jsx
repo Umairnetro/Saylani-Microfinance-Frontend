@@ -8,7 +8,7 @@ const Home = () => {
       <div className={`${style.landingPage}`}>
         <div className={`${style.main} container mx-auto`}>
           <div
-            className={`${style.content} h-full w-[55%] flex flex-col items-start justify-between`}
+            className={`${style.content} h-full w-[45%] flex flex-col items-start justify-between`}
           >
             <span></span>
             <div>
@@ -34,7 +34,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="sideImage w-[45%]">
+          <div className="sideImage w-[50%]">
             <img src={airplane} alt="error to load image" />
           </div>
         </div>

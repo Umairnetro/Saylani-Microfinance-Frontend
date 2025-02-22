@@ -1,17 +1,26 @@
 const apiFetch = async (path, method = "GET", body) => {
   try {
-    const api = await fetch(`https://vercel-api-olive.vercel.app/${path}`, {
-      method: `${method}`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
+    const response = await fetch(
+      // `https://vercel-api-olive.vercel.app/${path}`,
+      `http://localhost:3000/${path}`,
+      {
+        method: `${method}`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      }
+    );
 
-    const response = await api.json();
+    const data = await response.json();
 
-    const data = await response;
-    console.log(data);
+    if (!response.ok) {
+      console.log("Something went gone");
+      return data;
+    }
+
+    console.log("user successfully created", data);
+    return data;
   } catch (error) {
     throw new Error("Error fetching data: ", error);
   }

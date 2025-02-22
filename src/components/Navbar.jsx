@@ -16,7 +16,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to={"/loan-calculator"} className="font-semibold ">
+              <Link to={"/loan"} className="font-semibold ">
                 Loan Calculator
               </Link>
             </li>

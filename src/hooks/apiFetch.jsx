@@ -1,8 +1,8 @@
 const apiFetch = async (path, method = "GET", body) => {
   try {
     const response = await fetch(
-      // `https://vercel-api-olive.vercel.app/${path}`,
-      `http://localhost:3000/${path}`,
+      `https://vercel-api-olive.vercel.app/${path}`,
+      // `http://localhost:3000/${path}`,
       {
         method: `${method}`,
         headers: {

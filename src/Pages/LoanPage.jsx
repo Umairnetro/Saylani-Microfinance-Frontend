@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import weddingImg from "../assets/weddingImg.jpg";
 import apiFetch from "../hooks/apiFetch";
+import weddingImg from "../assets/weddingImg.jpg"
 
 const LoanPage = () => {
   const [data, setData] = useState([]);
@@ -35,7 +35,7 @@ const LoanPage = () => {
                   <div className="cardImage border border-dark-imperial-blue rounded-lg overflow-hidden mb-5 h-[12rem]">
                     <img
                       className="h-full w-full object-cover"
-                      src='../assets/weddingImg.jpg'
+                      src={weddingImg}
                       alt="not founded"
                     />
                   </div>

@@ -8,18 +8,17 @@ const Register = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const data = Object.fromEntries(form.entries());
-    console.log(data);
+    console.log(">>>>>>", data);
     try {
       const response = await apiFetch("api/auth/register", "POST", data);
       console.log(response.error);
-      setMessage(response.error);
+      setMessage(response.message ? response.message : response.error);
     } catch (error) {
       console.log(error);
       setMessage(error.message);
@@ -72,7 +71,7 @@ const Register = () => {
             />
           </div>
           {/* {message && <p>{message}</p>} */}
-          <p>{message || "no updates"}</p>
+          {message && <p>{message || ""}</p>}
           <button className="border-dark-imperial-blue border-2 self-center px-9 py-2 mt-2 mb-4 rounded-full bg-dark-imperial-blue text-white cursor-pointer text-lg hover:bg-white hover:text-dark-imperial-blue transition-(--transition)">
             Register
           </button>

@@ -15,7 +15,7 @@ const apiFetch = async (path, method = "GET", body) => {
     const data = await response.json();
 
     if (!response.ok) {
-      console.log("Something went gone");
+      console.log("error fetching data: ", data);
       return data;
     }
 

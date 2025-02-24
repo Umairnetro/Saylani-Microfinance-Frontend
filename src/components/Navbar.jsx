@@ -9,7 +9,7 @@ const Navbar = () => {
           <h3 className="logo text-2xl font-bold text-dark-imperial-blue ">
             Saylani Welfare
           </h3>
-          <ul className="flex items-center gap-5 text-dark-imperial-blue">
+          <ul className="flex items-center gap-5 text-dark-imperial-blue outline-none">
             <li>
               <Link to={"/"} className="font-semibold">
                 Home

@@ -4,7 +4,7 @@ import Footer from "./Footer";
 const Navbar = () => {
   return (
     <>
-      <header className="w-full border-b-dark-imperial-blue-border bg-white absolute">
+    <header className="w-full border-b-dark-imperial-blue-border bg-white absolute">
         <nav className="container flex justify-between items-center mx-auto pt-8">
           <h3 className="logo text-2xl font-bold text-dark-imperial-blue ">
             Saylani Welfare

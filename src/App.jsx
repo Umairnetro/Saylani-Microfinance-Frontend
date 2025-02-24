@@ -5,6 +5,7 @@ import Home from "./Pages/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import LoanPage from "./Pages/LoanPage";
+import { LoaderProvider } from "./context/LoaderContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,7 +35,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <LoaderProvider>
+        <RouterProvider router={router} />
+      </LoaderProvider>
     </>
   );
 }

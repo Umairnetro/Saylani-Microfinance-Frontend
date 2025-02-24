@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import apiFetch from "../hooks/apiFetch";
-import weddingImg from "../assets/weddingImg.jpg"
-
+import { useLoader } from "../context/LoaderContext";
 const LoanPage = () => {
   const [data, setData] = useState([]);
-
+  const { setShowLoader } = useLoader();
   useEffect(() => {
     const fetchData = async () => {
-      const loanData = await apiFetch("api/auth/loans");
-      console.log(loanData);
-      setData(loanData);
+      setShowLoader(true);
+      try {
+        const loanData = await apiFetch("api/auth/loans");
+        setData(loanData);
+      } catch (error) {
+        console.log(error);
+      }
+      setShowLoader(false);
     };
 
-    console.log("reach");
     fetchData();
   }, []);
-
-  console.log(data);
 
   return (
     <div className="container h-screen m-auto rounded-3xl flex flex-col justify-center items-center gap-10">
@@ -30,18 +31,19 @@ const LoanPage = () => {
               <>
                 <a
                   key={loan.id}
-                  className="card border-2 border-dark-imperial-blue w-[23%] p-4 rounded-2xl bg-ufo-green flex flex-col hover:-translate-y-4 duration-700 cursor-pointer"
+                  className="card group border-2 border-dark-imperial-blue w-[23%] p-4 rounded-2xl bg-ufo-green flex flex-col hover:-translate-y-4 hover:bg-white duration-700 cursor-pointer"
                 >
                   <div className="cardImage border border-dark-imperial-blue rounded-lg overflow-hidden mb-5 h-[12rem]">
                     <img
                       className="h-full w-full object-cover"
-                      src={weddingImg}
+                      src={loan.img}
                       alt="not founded"
                     />
+                    {console.log({ checking: loan.img })}
                   </div>
-                  <div className="cardContent flex flex-col justify-between grow">
-                    <div className="">
-                      <h3 className="font-bold text-xl ">{loan.name}</h3>
+                  <div className="cardContent flex flex-col justify-between">
+                    <div>
+                      <h3 className="font-bold text-xl">{loan.name}</h3>
                       <p className="mb-3 text-[0.9rem] opacity-80">
                         {loan.description}
                       </p>
@@ -54,16 +56,15 @@ const LoanPage = () => {
                       </p>
                     </div>
                     <div className="">
-                      <h4 className="text-center text-white font-semibold mt-2 mb-2 text-md">
+                      <h4 className="text-center text-white font-semibold mt-2 mb-2 text-md group-hover:text-dark-imperial-blue duration-300">
                         Subcategories
                       </h4>
-                      {console.log(loan.subCategories)}
-                      <ul className="flex flex-wrap justify-start gap-x-2 gap-y-1">
+                      <ul className="flex flex-wrap justify-center gap-x-2 gap-y-1">
                         {loan.subCategories.map((subs) => {
                           return (
                             <li
                               key={subs.id}
-                              className="bg-white border-2 border-dark-imperial-blue px-3 py-1 text-sm rounded-full"
+                              className="bg-white border-2 border-dark-imperial-blue px-3 py-1 text-[0.7rem] rounded-full"
                             >
                               {subs.name}
                             </li>
@@ -77,8 +78,8 @@ const LoanPage = () => {
             );
           })
         ) : (
-          <div className="card border-2 border-dark-imperial-blue w-1/4 p-4 rounded-2xl bg-ufo-green">
-            <p>Loading...</p>
+          <div className="card border-2 border-dark-imperial-blue w-1/4 p-4 rounded-2xl bg-ufo-green text-center">
+            <p className="font-semibold text-xl">Loading...</p>
           </div>
         )}
 
